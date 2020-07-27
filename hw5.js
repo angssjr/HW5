@@ -28,11 +28,16 @@ app.get('/', (req,res)=>{
 app.post('/', function(req,res){
     console.log("POST!");
     var qParams = [];
+    for (var p in req.query){
+        qParams.push({"name":p,"value":req.query[p]})
+      }
     for (var p in req.body){
       qParams.push({"name":p,"value":req.body[p]})
     }
     console.log(qParams);
+    console.log(req.query);
     console.log(req.body);
+    
     var context = {};
     context.dataList = qParams;
     res.render('post', context);
