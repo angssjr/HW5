@@ -16,7 +16,13 @@ app.use(express.json());
 
 app.get('/', (req,res)=>{
     console.log('hello world!');
-    res.render('home');
+    var qParams = [];
+    for(var p in req.query){
+        qParams.push({"name":p,"value":req.query[p]})
+    }
+    var context = {};
+    context.dataList = qParams;
+    res.render('home',context);
 })
 
 app.get('/show-data', (req,res)=>{
@@ -24,18 +30,6 @@ app.get('/show-data', (req,res)=>{
     context.sentData = req.query.myData;
     res.render('show-data',context);
 })
-
-app.get('/get-loopback',(req,res)=>{
-    var qParams = "";
-    for(var p in req.query){
-        qParams+= "The name " + p + " contains the value " + req.query[p] + ", ";
-    }
-    qParams = qParams.substring(0, qParams.lastIndexOf(','));
-    qParams += '.';
-    var context = {};
-    context.dataList = qParams;
-    res.render('get-loopback', context);
-});
 
 app.get('/get-loopback-improved', (req,res)=>{
     var qParams = [];
