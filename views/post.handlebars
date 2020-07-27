@@ -1,0 +1,25 @@
+<h1>POST Request Received</h1>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Key
+            </th>
+            <th>
+                Value
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            {{#each dataList}}
+            <tr>
+                <th>
+                    {{this.name}}
+                </th>
+                <td>
+                    {{this.value}}
+                </td>
+            </tr>
+            {{/each}}
+    </tbody>
+</table>

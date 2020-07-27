@@ -22,8 +22,20 @@ app.get('/', (req,res)=>{
     }
     var context = {};
     context.dataList = qParams;
-    res.render('home',context);
+    res.render('get',context);
 })
+
+app.post('/', function(req,res){
+    var qParams = [];
+    for (var p in req.body){
+      qParams.push({'name':p,'value':req.body[p]})
+    }
+    console.log(qParams);
+    console.log(req.body);
+    var context = {};
+    context.dataList = qParams;
+    res.render('post', context);
+  });
 
 app.get('/show-data', (req,res)=>{
     var context = {};
@@ -40,6 +52,8 @@ app.get('/get-loopback-improved', (req,res)=>{
     context.dataList = qParams;
     res.render('get-loopback-improved',context);
 })
+
+
 
 app.use((req,res)=>{
     res.status(404);
