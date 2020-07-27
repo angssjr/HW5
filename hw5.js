@@ -1,12 +1,12 @@
 var express = require('express');
-const { allowedNodeEnvironmentFlags, report } = require('process');
+var exphbs = require('express-handlebars');
+
 var app = express();
 
-var handlebars  = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
 
-app.engine('handlebars', handlebars.engine);
+app.engine('handlebars', exphbs());
 app.set('view engine','handlebars');
 app.set('port', 6140);
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.get('/', (req,res)=>{
     console.log('hello world!');
-    res.render('main');
+    res.render('home');
 })
 
 app.get('/show-data', (req,res)=>{
