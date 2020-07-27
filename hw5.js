@@ -19,7 +19,7 @@ app.get('/', (req,res)=>{
     var qParams = [];
     for(var p in req.query){
         qParams.push({"name":p,"value":req.query[p]})
-    }
+    }   
     var context = {};
     context.dataList = qParams;
     res.render('get',context);
@@ -44,10 +44,6 @@ app.use((req,res)=>{
     res.render('404');   
 });
 
-app.use((req,res)=>{
-    res.status(500);
-    res.render('500');
-});
 
 app.use((err,req,res,next)=>{
     console.error(err.stack);
