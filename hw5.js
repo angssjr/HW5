@@ -2,10 +2,10 @@ var express = require('express');
 const { allowedNodeEnvironmentFlags, report } = require('process');
 var app = express();
 
-var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var handlebars  = require('express-handlebars').create({defaultLayout:'main'});
 
-app.engine('handlebars', exphbs());
-app.set('view engine', exphbs());
+app.engine('handlebars', 'handlebars');
+app.set('view engine',handlebars);
 app.set('port', 6140);
 
 app.use(express.urlencoded({extended:false}));
