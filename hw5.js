@@ -28,7 +28,7 @@ app.get('/', (req,res)=>{
 app.post('/', function(req,res){
     var qParams = [];
     for (var p in req.body){
-      qParams.push({'name':p,'value':req.body[p]})
+      qParams.push({"name":p,"value":req.body[p]})
     }
     console.log(qParams);
     console.log(req.body);
