@@ -10,8 +10,8 @@ app.engine('handlebars', exphbs());
 app.set('view engine','handlebars');
 app.set('port', 6140);
 
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 
 app.get('/', (req,res)=>{
