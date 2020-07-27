@@ -9,6 +9,7 @@
     "author": "SA",
     "license": "ISC",
     "dependencies": {
+        "body-parser": "^1.13.3",
         "express": "^4.17.1",
         "express-handlebars": "^2.0.1",
         "express-session": "^1.11.3",
